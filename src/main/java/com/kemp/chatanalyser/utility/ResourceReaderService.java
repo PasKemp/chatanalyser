@@ -1,26 +1,18 @@
 package com.kemp.chatanalyser.utility;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.*;
 
-@Component
-public class ChatReader{
+@Service
+public class ResourceReaderService {
 
-    private final Resource resource;
-
-    public ChatReader() {
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext();
-        resource = ctx.getResource("classpath:static/chat.txt");
-    }
-
-    public Optional<List<String>> readResource() {
+    public Optional<List<String>> readResource(final Resource resource) {
         List<String> list = new ArrayList<String>();
         try {
-            InputStream is = this.resource.getInputStream();
+            InputStream is = resource.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             String line;

@@ -1,4 +1,4 @@
-package com.kemp.chatanalyser.model.entity;
+package com.kemp.chatanalyser.app.model;
 
 
 import lombok.Getter;
